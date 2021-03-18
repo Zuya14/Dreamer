@@ -276,7 +276,7 @@ def main():
             done = False
             total_reward = 0
             while not done:
-                action = policy(obs, training=False)
+                action = policy(obs, training=False).reshape(env.action_space.shape)
                 obs, reward, done, _ = env.step(action)
                 total_reward += reward
 
