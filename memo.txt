@@ -1,0 +1,1 @@
+python train.py --env-name 'InvertedPendulumSwingupBulletEnv-v0' --collect-interval 10
