@@ -1,1 +1,5 @@
 python train.py --env-name 'InvertedPendulumSwingupBulletEnv-v0' --collect-interval 10
+python train.py --env-name 'InvertedPendulumSwingupBulletEnv-v0' --collect-interval 100 --seed-episodes 10 --all-episodes 300 --log-dir "log/03"
+
+tensorboard --logdir='./log'
+

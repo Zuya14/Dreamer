@@ -96,7 +96,6 @@ def main():
 
     writer = SummaryWriter(args.log_dir)
 
-
     for episode in range(args.seed_episodes):
         obs = env.reset()
         done = False
@@ -120,6 +119,7 @@ def main():
         while not done:
             # 探索のためにガウス分布に従うノイズを加える
             action = policy(obs) + np.random.normal(0, np.sqrt(args.action_noise_var), env.action_space.shape[0])
+            action = np.clip(action, env.action_space.low, env.action_space.high)
             next_obs, reward, done, _ = env.step(action)
             replay_buffer.push(obs, action, reward, done)
             obs = next_obs
